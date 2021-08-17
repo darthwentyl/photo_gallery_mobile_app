@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Photo Gallery</string>
+    <string name="app_name">Galeria fotografii</string>
+
+    <string name="setting_str">Ustawienia</string>
+    <string name="send_photos_txt_btn">Wyślij zdjęcia</string>
 </resources>
