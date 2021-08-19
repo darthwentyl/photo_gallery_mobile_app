@@ -7,7 +7,9 @@
         <entry key="app/src/main/res/drawable/icons.xml" value="0.4395833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.40729166666666666" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.4234375" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.4234375" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.24270833333333333" />
       </map>
     </option>
   </component>
