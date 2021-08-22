@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galeria fotografii</string>
+
+    <string name="setting_str">Ustawienia</string>
+    <string name="send_photos_txt_btn">Wyślij zdjęcia</string>
+    <string name="show_photos_txt_btn">Wyświetl zdjęcia</string>
+    <string name="take_photo_txt_btn">Zrób zdjęcia</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Sync Preferences -->
+    <string name="language_setting_title">Język</string>
+    <string name="language_pref">language_pref</string>
+</resources>

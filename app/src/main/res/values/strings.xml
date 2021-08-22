@@ -1,25 +1,13 @@
 <resources>
-    <string name="app_name">Galeria fotografii</string>
+    <string name="app_name">Photo gallery</string>
 
-    <string name="setting_str">Ustawienia</string>
-    <string name="send_photos_txt_btn">Wyślij zdjęcia</string>
-    <string name="show_photos_txt_btn">Pokaż zdjęcia</string>
-    <string name="take_photo_txt_btn">Zrób zdjęcie</string>
+    <string name="setting_str">Settings</string>
+    <string name="send_photos_txt_btn">Send photos</string>
+    <string name="show_photos_txt_btn">Show photos</string>
+    <string name="take_photo_txt_btn">Take photos</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="language_setting_title">Język</string>
+    <string name="language_setting_title">Language</string>
+    <string name="language_pref">language_pref</string>
 </resources>
