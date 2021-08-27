@@ -1,39 +1,27 @@
 package wendland.michal.photogallery.view
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.preference.PreferenceManager
+import android.widget.Toast
+import android.widget.Toolbar
+import androidx.activity.result.contract.ActivityResultContracts
 import wendland.michal.photogallery.R
+import wendland.michal.photogallery.R.string.app_name
+import wendland.michal.photogallery.const.PutExtrasNames
 import wendland.michal.photogallery.setting.SettingsActivity
-import java.util.*
 
-class MainActivity : AppCompatActivity() {
-    private var TAG = "MainActivity"
+class MainActivity : BaseActivity() {
+    private var LOG_TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        Log.i(TAG, "onResume()")
-//        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-//        val langCode = sharedPref.getString("language", "sys").toString()
-//        Log.i(TAG, "langCode: " + langCode)
-//        val config = Configuration(resources.configuration)
-//        val locale = Locale(langCode)
-//        config.setLocale(locale)
-//        this.createConfigurationContext(config)
-//        resources.updateConfiguration(config, resources.displayMetrics)
+        this.title = getString(R.string.title_app)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,14 +33,23 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.settings -> {
-                Log.i(TAG, "R.id.settings is clicked")
-                startActivity(Intent(this, SettingsActivity::class.java))
+                openSettingsActivity.launch(Intent(this, SettingsActivity::class.java))
                 true
             }
             else -> {
-                Log.i(TAG, "unresolved id is clicked item.itemId: " + item.itemId)
+                Log.w(LOG_TAG, "unresolved id is clicked item.itemId: " + item.itemId)
                 super.onOptionsItemSelected(item)
             }
         }
     }
+
+    private val openSettingsActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK)  {
+            if (result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false) == true) {
+                recreate()
+            }
+            Toast.makeText(this, getString(R.string.change_lang_info), Toast.LENGTH_SHORT).show()
+        }
+    }
 }
+

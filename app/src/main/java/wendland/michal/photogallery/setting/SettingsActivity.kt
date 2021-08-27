@@ -1,23 +1,27 @@
 package wendland.michal.photogallery.setting
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.ListPreference
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import wendland.michal.photogallery.R
+import wendland.michal.photogallery.const.PutExtrasNames
+import wendland.michal.photogallery.fragment.SettingsFragment
+import wendland.michal.photogallery.view.BaseActivity
 
-class SettingsActivity : AppCompatActivity() {
-    private var TAG = "SettingsActivity"
+
+
+class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
+    private var LOG_TAG = "SettingsActivity"
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "onCreate()")
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         setContentView(R.layout.settings_activity)
+        this.title = getString(R.string.setting_str)
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -25,50 +29,50 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.i(TAG, "onOptionsItemSelected(): item.getId(): " + item.itemId)
         return when (item.itemId) {
             android.R.id.home -> {
-                Log.i(TAG, "onOptionsItemSelected() R.id.home  is clicked")
-                return true
+                setExtras()
+                finish()
+                true
             }
             else -> {
-                return super.onOptionsItemSelected(item)
+                super.onOptionsItemSelected(item)
             }
         }
     }
 
-    class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
-        private var TAG = "SettingsFragment"
+    override fun onPause() {
+        Log.i(LOG_TAG, "onPause()")
+        super.onPause()
+        setExtras()
+        sharedPref.unregisterOnSharedPreferenceChangeListener(this)
+    }
 
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            Log.i(TAG, "onCreatePreferences()")
-            setPreferencesFromResource(R.xml.root_preferences, rootKey)
+    override fun onResume() {
+        Log.i(LOG_TAG, "onResume()")
+        super.onResume()
+        sharedPref.registerOnSharedPreferenceChangeListener(this)
+    }
 
-            bindPreferenceSummaryToValue(findPreference(getString(R.string.language_pref)))
-        }
-
-        private fun bindPreferenceSummaryToValue(preference: Preference?) {
-            Log.i(TAG, "bindPreferenceSummaryToValue()")
-            preference?.onPreferenceChangeListener = this
-            onPreferenceChange(preference,
-                PreferenceManager
-                    .getDefaultSharedPreferences(preference?.context)
-                    .getString(preference?.key, ""))
-        }
-
-        override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
-            val stringValue = newValue.toString()
-            if (preference is ListPreference) {
-                val prefIdx = preference.findIndexOfValue(stringValue)
-                if (prefIdx >= 0) {
-                    val sharedPref = PreferenceManager.getDefaultSharedPreferences(requireContext().applicationContext)
-                    sharedPref.edit().putString("language", stringValue).apply()
-                }
-            }
-            return true
+    override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
+        if (p1 == getString(R.string.language_pref)) {
+            recreate()
         }
     }
+
+    override fun onBackPressed() {
+        setExtras()
+        super.onBackPressed()
+    }
+
+    private fun setExtras() {
+        val result = Intent()
+        result.putExtra(PutExtrasNames.IS_LANG_CHANGE, true)
+        setResult(RESULT_OK, result)
+    }
+
 }

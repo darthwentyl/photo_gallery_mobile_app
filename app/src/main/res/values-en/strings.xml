@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Photo gallery</string>
+
+    <string name="title_app">Photo gallery</string>
+    <string name="setting_str">Settings</string>
+    <string name="send_photos_txt_btn">Send photos</string>
+    <string name="show_photos_txt_btn">Show photos</string>
+    <string name="take_photo_txt_btn">Take photos</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Sync Preferences -->
+    <string name="language_setting_title">Language</string>
+    <string name="language_pref">language_pref</string>
+
+    <!-- Other -->
+    <string name="change_lang_info">The language has been changed</string>
+</resources>
