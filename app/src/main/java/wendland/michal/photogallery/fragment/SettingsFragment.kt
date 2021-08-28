@@ -7,16 +7,17 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import wendland.michal.photogallery.R
+import wendland.michal.photogallery.helper.CustomLogger
 
 class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
-//    private var LOG_TAG = "SettingsFragment"
-
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        CustomLogger().logMethod()
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
         bindPreferenceSummaryToValue(findPreference(getString(R.string.language_pref)))
     }
 
     private fun bindPreferenceSummaryToValue(preference: Preference?) {
+        CustomLogger().logMethod()
         preference?.onPreferenceChangeListener = this
         onPreferenceChange(preference,
             PreferenceManager
@@ -25,6 +26,7 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChan
     }
 
     override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
+        CustomLogger().logMethod()
         val stringValue = newValue.toString()
         if (preference is ListPreference) {
             val prefIdx = preference.findIndexOfValue(stringValue)
