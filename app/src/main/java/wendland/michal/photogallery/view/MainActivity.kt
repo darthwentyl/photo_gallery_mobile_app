@@ -11,7 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import wendland.michal.photogallery.R
 import wendland.michal.photogallery.const.PutExtrasNames
 import wendland.michal.photogallery.helper.CustomLogger
-import wendland.michal.photogallery.setting.SettingsActivity
 
 class MainActivity : BaseActivity() {
 

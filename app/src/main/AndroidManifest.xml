@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoGallery">
         <activity
-            android:name=".setting.SettingsActivity"
+            android:name=".view.SettingsActivity"
             android:exported="true"
             android:label="@string/setting_str" />
         <activity

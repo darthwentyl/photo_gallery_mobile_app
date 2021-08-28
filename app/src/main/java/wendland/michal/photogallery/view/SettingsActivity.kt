@@ -1,4 +1,4 @@
-package wendland.michal.photogallery.setting
+package wendland.michal.photogallery.view
 
 import android.content.Intent
 import android.content.SharedPreferences
