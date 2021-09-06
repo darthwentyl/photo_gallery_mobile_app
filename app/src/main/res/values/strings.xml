@@ -14,7 +14,10 @@
 
     <!-- Other -->
     <string name="change_lang_info">Język został zmieniony</string>
-    <string name="take_photo_to_be_done">Pobieranie zdjęć TBD</string>
+    <string name="explain_perm_take_photo">Wymagany jest dostęp do kamery</string>
+
+    <!-- Temporary -->
+    <string name="take_photo_to_be_done">Robienie zdjęć TBD</string>
     <string name="show_photos_tbd_txt">Wyświetl zdjęcia TBD</string>
     <string name="send_photos_tbd_txt">Wyślij zdjęcia TBD</string>
 </resources>

@@ -3,7 +3,6 @@ package wendland.michal.photogallery.view
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.preference.PreferenceManager
 import wendland.michal.photogallery.R

@@ -12,8 +12,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import wendland.michal.photogallery.R
 import wendland.michal.photogallery.data.PutExtrasNames
 import wendland.michal.photogallery.helper.CustomLogger
+import wendland.michal.photogallery.helper.TakePhotosLauncher
 
 class MainActivity : BaseActivity() {
+
+    private val takePhotosLauncher: TakePhotosLauncher =
+        TakePhotosLauncher(this, TakePhotoActivity::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         CustomLogger().logMethod()
@@ -25,7 +29,7 @@ class MainActivity : BaseActivity() {
 
         val takePhotoBtn = findViewById<Button>(R.id.take_photo_btn)
         takePhotoBtn.setOnClickListener {
-            openTakePhotoActivity.launch(Intent(this, TakePhotoActivity::class.java))
+            takePhotosLauncher.launch()
         }
 
         val showPhotosActivity = findViewById<Button>(R.id.show_photos_btn)
@@ -71,14 +75,6 @@ class MainActivity : BaseActivity() {
                 Toast.makeText(this, getString(R.string.change_lang_info), Toast.LENGTH_SHORT).show()
                 recreate()
             }
-        }
-    }
-
-    private val openTakePhotoActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        CustomLogger().logMethod()
-
-        if (it.resultCode == Activity.RESULT_OK) {
-            Toast.makeText(this, "Take photo activity is finished", Toast.LENGTH_SHORT).show()
         }
     }
 

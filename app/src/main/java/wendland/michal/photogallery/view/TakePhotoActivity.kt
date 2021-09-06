@@ -1,5 +1,6 @@
 package wendland.michal.photogallery.view
 
+
 import android.content.Intent
 import android.os.Bundle
 import wendland.michal.photogallery.R

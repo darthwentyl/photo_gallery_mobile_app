@@ -15,6 +15,9 @@
 
     <!-- Other -->
     <string name="change_lang_info">The language has been changed</string>
+    <string name="explain_perm_take_photo">Access to the camera is required</string>
+
+    <!-- Temporary -->
     <string name="take_photo_to_be_done">Take photo TBD</string>
     <string name="show_photos_tbd_txt">Show photos TBD</string>
     <string name="send_photos_tbd_txt">Send photos TBD</string>
