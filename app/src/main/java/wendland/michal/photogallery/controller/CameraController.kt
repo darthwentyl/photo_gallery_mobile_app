@@ -1,32 +1,28 @@
 package wendland.michal.photogallery.controller
 
-import android.content.Context
 import android.content.pm.PackageManager
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import wendland.michal.photogallery.helper.CustomLogger
 
-class CameraController(private val context: Context) {
+class CameraController(private val appCompatActivity: AppCompatActivity) {
 
     fun launch(): Boolean {
         CustomLogger().logMethod()
 
-        return if (checkCameraHardware()) {
-            CustomLogger().d("true")
+        var hasCamera: Boolean = appCompatActivity.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)
+        return if (hasCamera) {
+            imageCaptureAction.launch(null)
             true
         } else {
-            CustomLogger().d("false")
+            CustomLogger().w("Camera is not detected")
             false
         }
     }
 
-    private fun checkCameraHardware(): Boolean {
+    private val imageCaptureAction = appCompatActivity.registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
         CustomLogger().logMethod()
-
-        return if (context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            CustomLogger().d("true")
-            true
-        } else {
-            CustomLogger().d("false")
-            false
-        }
+        CustomLogger().d("isSuccess: $isSuccess")
     }
+
 }
