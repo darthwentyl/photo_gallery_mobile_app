@@ -15,6 +15,7 @@
     <!-- Other -->
     <string name="change_lang_info">Język został zmieniony</string>
     <string name="explain_perm_take_photo">Wymagany jest dostęp do kamery</string>
+    <string name="camera_does_not_exist">Nie wykryto kamery w urządzeniu</string>
 
     <!-- Temporary -->
     <string name="take_photo_to_be_done">Robienie zdjęć TBD</string>

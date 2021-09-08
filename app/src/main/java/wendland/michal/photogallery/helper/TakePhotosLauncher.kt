@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import wendland.michal.photogallery.R
+import wendland.michal.photogallery.data.PutExtrasNames.RETURN_MESSAGE
 
 
 class TakePhotosLauncher(
@@ -53,6 +54,12 @@ class TakePhotosLauncher(
         if (it.resultCode == Activity.RESULT_OK) {
             var msg = "Take photo activity is finished"
             Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
+        } else {
+            CustomLogger().w("it.resultCode: " + it.resultCode)
+            val msg: String? = it.data?.getStringExtra(RETURN_MESSAGE)
+            if (msg != null) {
+                Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

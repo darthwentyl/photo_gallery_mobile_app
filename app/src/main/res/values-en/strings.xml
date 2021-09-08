@@ -16,6 +16,7 @@
     <!-- Other -->
     <string name="change_lang_info">The language has been changed</string>
     <string name="explain_perm_take_photo">Access to the camera is required</string>
+    <string name="camera_does_not_exist">Cammera is not detected</string>
 
     <!-- Temporary -->
     <string name="take_photo_to_be_done">Take photo TBD</string>
