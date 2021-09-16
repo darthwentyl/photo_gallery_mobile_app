@@ -22,4 +22,7 @@
     <string name="take_photo_to_be_done">Take photo TBD</string>
     <string name="show_photos_tbd_txt">Show photos TBD</string>
     <string name="send_photos_tbd_txt">Send photos TBD</string>
+    <string name="take_photo_frag_sync_btn">Sync</string>
+    <string name="take_photo_frag_new_btn">New</string>
+    <string name="take_photo_frag_cancel_btn">Cancel</string>
 </resources>
