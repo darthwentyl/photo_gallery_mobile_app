@@ -12,13 +12,22 @@
     <string name="language_setting_title">Język</string>
     <string name="language_pref">language_pref</string>
 
+    <!-- Take Photo Fragment -->
+    <string name="take_photo_frag_sync_btn">Sync</string>
+    <string name="take_photo_frag_new_btn">Nowy</string>
+    <string name="take_photo_frag_cancel_btn">Anuluj</string>
+
     <!-- Other -->
     <string name="change_lang_info">Język został zmieniony</string>
     <string name="explain_perm_take_photo">Wymagany jest dostęp do kamery</string>
+    <string name="explain_perm_write_ext_storage">Wymagany jest dostęp do pamięci</string>
     <string name="camera_does_not_exist">Nie wykryto kamery w urządzeniu</string>
+    <string name="back">powrót</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
     <!-- Temporary -->
     <string name="take_photo_to_be_done">Robienie zdjęć TBD</string>
     <string name="show_photos_tbd_txt">Wyświetl zdjęcia TBD</string>
     <string name="send_photos_tbd_txt">Wyślij zdjęcia TBD</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

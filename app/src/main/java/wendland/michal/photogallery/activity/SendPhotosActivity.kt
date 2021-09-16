@@ -1,16 +1,17 @@
-package wendland.michal.photogallery.view
+package wendland.michal.photogallery.activity
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import wendland.michal.photogallery.R
 import wendland.michal.photogallery.helper.CustomLogger
 
-class ShowPhotosActivity : BaseActivity() {
+class SendPhotosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         CustomLogger.logMethod()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_show_photos)
+        setContentView(R.layout.activity_send_photos)
 
         this.title = getString(R.string.title_app)
     }

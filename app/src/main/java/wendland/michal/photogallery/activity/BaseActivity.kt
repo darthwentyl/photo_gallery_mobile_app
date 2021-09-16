@@ -1,4 +1,4 @@
-package wendland.michal.photogallery.view
+package wendland.michal.photogallery.activity
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

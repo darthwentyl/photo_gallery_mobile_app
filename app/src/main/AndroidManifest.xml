@@ -17,20 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoGallery">
         <activity
-            android:name=".view.SendPhotosActivity"
+            android:name=".activity.SendPhotosActivity"
             android:exported="true" />
         <activity
-            android:name=".view.ShowPhotosActivity"
+            android:name=".fragment.ShowPhotosActivity"
             android:exported="true" />
         <activity
-            android:name=".view.TakePhotoActivity"
+            android:name=".activity.TakePhotoActivity"
             android:exported="true" />
         <activity
-            android:name=".view.SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:exported="true"
             android:label="@string/setting_str" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/title_app">
             <intent-filter>
@@ -39,6 +39,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="wendland.michal.photogallery.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

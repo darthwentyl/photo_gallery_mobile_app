@@ -1,15 +1,12 @@
-package wendland.michal.photogallery.view
-
+package wendland.michal.photogallery.activity
 
 import android.content.Intent
 import android.os.Bundle
 import wendland.michal.photogallery.R
-import wendland.michal.photogallery.controller.CameraController
 import wendland.michal.photogallery.data.PutExtrasNames.RETURN_MESSAGE
 import wendland.michal.photogallery.helper.CustomLogger
 
 class TakePhotoActivity : BaseActivity() {
-    private val cameraController: CameraController = CameraController(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         CustomLogger.logMethod()
@@ -17,11 +14,6 @@ class TakePhotoActivity : BaseActivity() {
         setContentView(R.layout.activity_take_photo)
 
         this.title = getString(R.string.title_app)
-
-        if (!cameraController.launch()) {
-            closeActivity(false, getString(R.string.camera_does_not_exist))
-            finish()
-        }
     }
 
     override fun onBackPressed() {

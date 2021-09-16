@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.4395833333333333" />
         <entry key="app/src/main/res/drawable/icons.xml" value="0.4395833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37411764705882355" />
@@ -10,8 +11,13 @@
         <entry key="app/src/main/res/layout/activity_show_photos.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_take_photo.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.37767220902612825" />
+        <entry key="app/src/main/res/layout/fragment_take_photo_image_view.xml" value="0.22239583333333332" />
+        <entry key="app/src/main/res/layout/fragment_take_photo_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/take_photo_card_layout.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/take_photo_card_view.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.4234375" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/xml/root_preferences.xml" value="0.24270833333333333" />
       </map>
     </option>
