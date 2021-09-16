@@ -20,7 +20,7 @@
             android:name=".view.SendPhotosActivity"
             android:exported="true" />
         <activity
-            android:name=".view.ShowPhotosActivity"
+            android:name=".fragment.ShowPhotosActivity"
             android:exported="true" />
         <activity
             android:name=".view.TakePhotoActivity"

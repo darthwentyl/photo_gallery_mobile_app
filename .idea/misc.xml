@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_show_photos.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_take_photo.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.37767220902612825" />
+        <entry key="app/src/main/res/layout/fragment_take_photo_image_view.xml" value="0.22239583333333332" />
         <entry key="app/src/main/res/layout/fragment_take_photo_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.4234375" />

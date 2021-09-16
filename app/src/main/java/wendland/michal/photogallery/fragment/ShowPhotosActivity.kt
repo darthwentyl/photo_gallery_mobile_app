@@ -1,9 +1,10 @@
-package wendland.michal.photogallery.view
+package wendland.michal.photogallery.fragment
 
 import android.content.Intent
 import android.os.Bundle
 import wendland.michal.photogallery.R
 import wendland.michal.photogallery.helper.CustomLogger
+import wendland.michal.photogallery.view.BaseActivity
 
 class ShowPhotosActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

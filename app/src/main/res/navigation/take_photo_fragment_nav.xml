@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/take_photo_fragment_nav"
+    app:startDestination="@id/takePhotoListFragment">
+
+    <fragment
+        android:id="@+id/takePhotoListFragment"
+        android:name="wendland.michal.photogallery.fragment.TakePhotoListFragment"
+        android:label="fragment_take_photo_list"
+        tools:layout="@layout/fragment_take_photo_list" >
+        <action
+            android:id="@+id/action_takePhotoListFragment_to_takePhotoImageViewFragment"
+            app:destination="@id/takePhotoImageViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/takePhotoImageViewFragment"
+        android:name="wendland.michal.photogallery.fragment.TakePhotoImageViewFragment"
+        android:label="TakePhotoImageViewFragment"
+        tools:layout="@layout/fragment_take_photo_image_view" >
+        <action
+            android:id="@+id/action_takePhotoImageViewFragment_to_takePhotoListFragment"
+            app:destination="@id/takePhotoListFragment" />
+    </fragment>
+</navigation>
