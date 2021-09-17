@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_take_photo_list" >
         <action
             android:id="@+id/action_takePhotoListFragment_to_takePhotoImageViewFragment"
-            app:destination="@id/takePhotoImageViewFragment" />
+            app:destination="@id/takePhotoImageViewFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/take_photo_fragment_nav" />
     </fragment>
 
     <fragment
@@ -22,6 +24,8 @@
         tools:layout="@layout/fragment_take_photo_image_view" >
         <action
             android:id="@+id/action_takePhotoImageViewFragment_to_takePhotoListFragment"
-            app:destination="@id/takePhotoListFragment" />
+            app:destination="@id/takePhotoListFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
