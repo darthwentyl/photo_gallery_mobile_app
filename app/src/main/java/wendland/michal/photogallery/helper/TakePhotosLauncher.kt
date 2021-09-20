@@ -3,13 +3,9 @@ package wendland.michal.photogallery.helper
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import wendland.michal.photogallery.R
 import wendland.michal.photogallery.data.PutExtrasNames.RETURN_MESSAGE
 
 
@@ -17,6 +13,10 @@ class TakePhotosLauncher(
     private val packageContext: AppCompatActivity,
     private val cls: Class<*>
 ) {
+    private var permissionsArray: Array<String> = arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
     fun launch() {
         CustomLogger().logMethod()
         checkPermissionsAndLaunch()
@@ -24,28 +24,7 @@ class TakePhotosLauncher(
 
     private fun checkPermissionsAndLaunch() {
         CustomLogger().logMethod()
-        when {
-            ContextCompat.checkSelfPermission(
-                packageContext,
-                Manifest.permission.CAMERA
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                CustomLogger().d("PackageManager.PERMISSION_GRANTED")
-                requestCameraPermission.launch(Manifest.permission.CAMERA)
-            }
-
-            ActivityCompat.shouldShowRequestPermissionRationale(
-                packageContext,
-                Manifest.permission.CAMERA
-            ) -> {
-                CustomLogger().d("PackageManager.CAMERA")
-                requestCameraPermission.launch(Manifest.permission.CAMERA)
-            }
-
-            else -> {
-                CustomLogger().d("else")
-                requestCameraPermission.launch(Manifest.permission.CAMERA)
-            }
-        }
+        requestPermissions.launch(permissionsArray)
     }
 
     private val openTakePhotoActivity = packageContext.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -63,14 +42,20 @@ class TakePhotosLauncher(
         }
     }
 
-    private val requestCameraPermission = packageContext.registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+    private val requestPermissions = packageContext.registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
         CustomLogger().logMethod()
-        if (isGranted) {
+
+        var granted = true
+        map.forEach { entry ->
+            CustomLogger().d("key: " + entry.key + " value: " + entry.value)
+            if (!entry.value) {
+                granted = false
+                var msg = PermissionExplainMsg(packageContext).getMsg(entry.key)
+                Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
+            }
+        }
+        if (granted) {
             openTakePhotoActivity.launch(Intent(packageContext, cls))
-        } else {
-            CustomLogger().d("else")
-            var msg = packageContext.getString(R.string.explain_perm_take_photo)
-            Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
         }
     }
 

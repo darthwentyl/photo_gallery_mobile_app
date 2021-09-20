@@ -20,6 +20,7 @@
     <!-- Other -->
     <string name="change_lang_info">Język został zmieniony</string>
     <string name="explain_perm_take_photo">Wymagany jest dostęp do kamery</string>
+    <string name="explain_perm_write_ext_storage">Wymagany jest dostęp do pamięci</string>
     <string name="camera_does_not_exist">Nie wykryto kamery w urządzeniu</string>
 
     <!-- Temporary -->
