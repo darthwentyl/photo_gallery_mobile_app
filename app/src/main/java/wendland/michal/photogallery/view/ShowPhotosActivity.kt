@@ -7,7 +7,7 @@ import wendland.michal.photogallery.helper.CustomLogger
 
 class ShowPhotosActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_photos)
@@ -16,7 +16,7 @@ class ShowPhotosActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         val result = Intent()
         setResult(RESULT_OK, result)

@@ -20,7 +20,7 @@ class MainActivity : BaseActivity() {
         TakePhotosLauncher(this, TakePhotoActivity::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,7 +44,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
@@ -52,7 +52,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         return when (item.itemId) {
             R.id.settings -> {
@@ -60,17 +60,17 @@ class MainActivity : BaseActivity() {
                 true
             }
             else -> {
-                CustomLogger().w("unresolved id is clicked item.itemId: " + item.itemId)
+                CustomLogger.w("unresolved id is clicked item.itemId: " + item.itemId)
                 super.onOptionsItemSelected(item)
             }
         }
     }
 
     private val openSettingsActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         if (result.resultCode == Activity.RESULT_OK)  {
-            CustomLogger().d("result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false): " + result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false))
+            CustomLogger.d("result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false): " + result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false))
             if (result.data?.getBooleanExtra(PutExtrasNames.IS_LANG_CHANGE, false) == true) {
                 Toast.makeText(this, getString(R.string.change_lang_info), Toast.LENGTH_SHORT).show()
                 recreate()
@@ -79,7 +79,7 @@ class MainActivity : BaseActivity() {
     }
 
     private val openShowPhotosActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         if (it.resultCode == Activity.RESULT_OK) {
             Toast.makeText(this, "Show photos activity is finished", Toast.LENGTH_SHORT).show()
@@ -87,7 +87,7 @@ class MainActivity : BaseActivity() {
     }
 
     private val openSendPhotosActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         if (it.resultCode == Activity.RESULT_OK) {
             Toast.makeText(this, "Send photos activity is finished", Toast.LENGTH_SHORT).show()

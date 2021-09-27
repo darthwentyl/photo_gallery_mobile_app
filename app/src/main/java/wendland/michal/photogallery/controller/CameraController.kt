@@ -8,21 +8,21 @@ import wendland.michal.photogallery.helper.CustomLogger
 class CameraController(private val appCompatActivity: AppCompatActivity) {
 
     fun launch(): Boolean {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         var hasCamera: Boolean = appCompatActivity.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)
         return if (hasCamera) {
             imageCaptureAction.launch(null)
             true
         } else {
-            CustomLogger().w("Camera is not detected")
+            CustomLogger.w("Camera is not detected")
             false
         }
     }
 
     private val imageCaptureAction = appCompatActivity.registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-        CustomLogger().logMethod()
-        CustomLogger().d("isSuccess: $isSuccess")
+        CustomLogger.logMethod()
+        CustomLogger.d("isSuccess: $isSuccess")
     }
 
 }

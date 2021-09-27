@@ -12,7 +12,7 @@ class TakePhotoActivity : BaseActivity() {
     private val cameraController: CameraController = CameraController(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_take_photo)
 
@@ -25,14 +25,14 @@ class TakePhotoActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         closeActivity(true)
         super.onBackPressed()
     }
 
     private fun closeActivity(status: Boolean, msg: String = "") {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         val result = Intent()
 

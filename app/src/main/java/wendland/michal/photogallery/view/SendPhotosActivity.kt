@@ -8,7 +8,7 @@ import wendland.michal.photogallery.helper.CustomLogger
 
 class SendPhotosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send_photos)
@@ -17,7 +17,7 @@ class SendPhotosActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         val result = Intent()
         setResult(RESULT_OK, result)

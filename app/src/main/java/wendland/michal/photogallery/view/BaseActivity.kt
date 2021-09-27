@@ -8,7 +8,7 @@ import wendland.michal.photogallery.helper.CustomLogger
 
 open class BaseActivity: AppCompatActivity() {
     override fun attachBaseContext(newBase: Context?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         val langCode = PreferenceManager.getDefaultSharedPreferences(newBase)
             .getString("language", "sys").toString()
 

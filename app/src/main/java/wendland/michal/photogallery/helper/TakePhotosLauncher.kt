@@ -18,18 +18,18 @@ class TakePhotosLauncher(
     private val cls: Class<*>
 ) {
     fun launch() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         checkPermissionsAndLaunch()
     }
 
     private fun checkPermissionsAndLaunch() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         when {
             ContextCompat.checkSelfPermission(
                 packageContext,
                 Manifest.permission.CAMERA
             ) == PackageManager.PERMISSION_GRANTED -> {
-                CustomLogger().d("PackageManager.PERMISSION_GRANTED")
+                CustomLogger.d("PackageManager.PERMISSION_GRANTED")
                 requestCameraPermission.launch(Manifest.permission.CAMERA)
             }
 
@@ -37,25 +37,25 @@ class TakePhotosLauncher(
                 packageContext,
                 Manifest.permission.CAMERA
             ) -> {
-                CustomLogger().d("PackageManager.CAMERA")
+                CustomLogger.d("PackageManager.CAMERA")
                 requestCameraPermission.launch(Manifest.permission.CAMERA)
             }
 
             else -> {
-                CustomLogger().d("else")
+                CustomLogger.d("else")
                 requestCameraPermission.launch(Manifest.permission.CAMERA)
             }
         }
     }
 
     private val openTakePhotoActivity = packageContext.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         if (it.resultCode == Activity.RESULT_OK) {
             var msg = "Take photo activity is finished"
             Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
         } else {
-            CustomLogger().w("it.resultCode: " + it.resultCode)
+            CustomLogger.w("it.resultCode: " + it.resultCode)
             val msg: String? = it.data?.getStringExtra(RETURN_MESSAGE)
             if (msg != null) {
                 Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
@@ -64,11 +64,11 @@ class TakePhotosLauncher(
     }
 
     private val requestCameraPermission = packageContext.registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         if (isGranted) {
             openTakePhotoActivity.launch(Intent(packageContext, cls))
         } else {
-            CustomLogger().d("else")
+            CustomLogger.d("else")
             var msg = packageContext.getString(R.string.explain_perm_take_photo)
             Toast.makeText(packageContext, msg, Toast.LENGTH_SHORT).show()
         }

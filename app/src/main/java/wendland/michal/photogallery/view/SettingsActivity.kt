@@ -16,7 +16,7 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
     private var isLangChange: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onCreate(savedInstanceState)
         sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
@@ -35,7 +35,7 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         return when (item.itemId) {
             android.R.id.home -> {
@@ -50,7 +50,7 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
     }
 
     override fun onPause() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onPause()
         setExtras()
@@ -58,14 +58,14 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
     }
 
     override fun onResume() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onResume()
         sharedPref.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         if (p1 == getString(R.string.language_pref)) {
             isLangChange = true
@@ -74,30 +74,30 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
     }
 
     override fun onBackPressed() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         setExtras()
         super.onBackPressed()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onSaveInstanceState(outState)
         outState.putBoolean(PutExtrasNames.IS_LANG_CHANGE, isLangChange)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
         super.onRestoreInstanceState(savedInstanceState)
         isLangChange = savedInstanceState.getBoolean(PutExtrasNames.IS_LANG_CHANGE)
     }
 
     private fun setExtras() {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
 
-        CustomLogger().d("isLangChange: " + isLangChange)
+        CustomLogger.d("isLangChange: " + isLangChange)
         val result = Intent()
         result.putExtra(PutExtrasNames.IS_LANG_CHANGE, isLangChange)
         setResult(RESULT_OK, result)

@@ -3,7 +3,7 @@ package wendland.michal.photogallery.helper
 import android.util.Log
 import wendland.michal.photogallery.BuildConfig
 
-class CustomLogger {
+object CustomLogger {
     private lateinit var tag: String
     private lateinit var method: String
 

@@ -10,13 +10,13 @@ import wendland.michal.photogallery.helper.CustomLogger
 
 class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
         bindPreferenceSummaryToValue(findPreference(getString(R.string.language_pref)))
     }
 
     private fun bindPreferenceSummaryToValue(preference: Preference?) {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         preference?.onPreferenceChangeListener = this
         onPreferenceChange(preference,
             PreferenceManager
@@ -25,7 +25,7 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChan
     }
 
     override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
-        CustomLogger().logMethod()
+        CustomLogger.logMethod()
         val stringValue = newValue.toString()
         if (preference is ListPreference) {
             val prefIdx = preference.findIndexOfValue(stringValue)
