@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ShowPhotosActivity">
+    tools:context=".activity.ShowPhotosActivity">
 
     <TextView
         android:id="@+id/show_photos_tbd"

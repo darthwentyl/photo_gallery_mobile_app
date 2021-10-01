@@ -1,4 +1,4 @@
-package wendland.michal.photogallery.fragment
+package wendland.michal.photogallery.activity
 
 import android.content.Intent
 import android.os.Bundle

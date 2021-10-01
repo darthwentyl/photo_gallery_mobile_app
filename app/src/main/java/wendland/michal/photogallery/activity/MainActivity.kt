@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import wendland.michal.photogallery.R
 import wendland.michal.photogallery.data.PutExtrasNames
-import wendland.michal.photogallery.fragment.ShowPhotosActivity
 import wendland.michal.photogallery.helper.CustomLogger
 import wendland.michal.photogallery.helper.TakePhotosLauncher
 

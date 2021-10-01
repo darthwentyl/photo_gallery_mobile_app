@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/show_photo_fragment_nav"
+    app:startDestination="@id/showPhotosImagesView">
+    <fragment
+        android:id="@+id/showPhotosImagesView"
+        android:name="wendland.michal.photogallery.fragment.ShowPhotosImagesViewFragment"
+        android:label="ShowPhotosImagesView" >
+        <action
+            android:id="@+id/action_showPhotosImagesView_to_showPhotosDetailImageViewFragment"
+            app:destination="@id/showPhotosDetailImageViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showPhotosDetailImageViewFragment"
+        android:name="wendland.michal.photogallery.fragment.ShowPhotosDetailImageViewFragment"
+        android:label="fragment_show_photos_detail_image_view"
+        tools:layout="@layout/fragment_show_photos_detail_image_view" >
+        <action
+            android:id="@+id/action_showPhotosDetailImageViewFragment_to_showPhotosImagesView"
+            app:destination="@id/showPhotosImagesView" />
+        <action
+            android:id="@+id/action_showPhotosDetailImageViewFragment_to_showPhotosMapsFragment"
+            app:destination="@id/showPhotosMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showPhotosMapsFragment"
+        android:name="wendland.michal.photogallery.fragment.ShowPhotosMapsFragment"
+        android:label="fragment_show_photos_maps"
+        tools:layout="@layout/fragment_show_photos_maps" >
+        <action
+            android:id="@+id/action_showPhotosMapsFragment_to_showPhotosDetailImageViewFragment"
+            app:destination="@id/showPhotosDetailImageViewFragment" />
+    </fragment>
+</navigation>
